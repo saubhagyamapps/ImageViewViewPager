@@ -15,7 +15,7 @@ import java.util.TimerTask;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final Integer[] IMAGES = {R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four,R.drawable.five};
+    private static final Integer[] IMAGES = {R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four, R.drawable.five};
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
@@ -25,21 +25,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        init();
+        initialization();
     }
 
-    private void init() {
+    private void initialization() {
         for (int i = 0; i < IMAGES.length; i++)
             ImagesArray.add(IMAGES[i]);
-
         mPager = (ViewPager) findViewById(R.id.pager);
-
 
         mPager.setAdapter(new SlidingImage_Adapter(MainActivity.this, ImagesArray));
 
-
-        CirclePageIndicator indicator = (CirclePageIndicator)
-                findViewById(R.id.indicator);
+        CirclePageIndicator indicator = (CirclePageIndicator) findViewById(R.id.indicator);
 
         indicator.setViewPager(mPager);
 
